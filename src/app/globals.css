@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode (driven by next-themes toggling .dark on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* EcoSphere palette
+ * Light: Eco Green #16A34A, Sky Blue #0284C7, Sun Gold #FBBF24,
+ *        Warm Cream #FDFBF6, Background #F1F5F9
+ * Dark:  Vibrant Emerald #22C55E, Cyan Blue #38BDF8, Amber Gold #F59E0B,
+ *        Slate Charcoal #1E293B, Deep Midnight Navy #0B132B
+ */
+:root {
+  --background: #fdfbf6;
+  --foreground: #0f1a2e;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --border-subtle: #e2e8f0;
+}
+
+.dark {
+  --background: #0b132b;
+  --foreground: #eef2f7;
+  --surface: #1e293b;
+  --surface-muted: #131d38;
+  --border-subtle: #2b3a55;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border-subtle: var(--border-subtle);
+
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
+  --font-script: "Caveat", "Segoe Print", cursive;
+
+  /* Primary: Eco Green. The two darkest steps are the palette's ink
+   * colours (Slate Charcoal and Deep Midnight Navy) so headings, dark
+   * bands and overlays read navy rather than muddy green. */
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #22c55e;
+  --color-primary-500: #16a34a;
+  --color-primary-600: #15803d;
+  --color-primary-700: #166534;
+  --color-primary-800: #14532d;
+  --color-primary-900: #1e293b;
+  --color-primary-950: #0b132b;
+
+  /* Accent: Sun Gold / Amber Gold */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+  --color-accent-950: #451a03;
+
+  /* Secondary: Sky Blue / Cyan Blue */
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0284c7;
+  --color-secondary-600: #0369a1;
+  --color-secondary-700: #075985;
+  --color-secondary-800: #0c4a6e;
+  --color-secondary-900: #0b3654;
+  --color-secondary-950: #082f49;
+
+  /* Kept as aliases so any older class names still resolve to the new palette */
+  --color-glow-400: #4ade80;
+  --color-glow-500: #22c55e;
+  --color-glow-600: #16a34a;
+  --color-apricot-500: #fbbf24;
+
+  --animate-fade-up: fade-up 0.7s ease-out both;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Every heading uses the display serif. Soft, slightly wonky Fraunces gives
+   * the site a warm, editorial voice instead of a template feel. */
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 60, "WONK" 0;
+    letter-spacing: -0.015em;
+  }
+
+  h1,
+  h2 {
+    font-weight: 600;
+    line-height: 1.08;
+  }
+}
+
+/* Italic accent word inside a heading, e.g. <em className="accent-word">planet</em> */
+.accent-word {
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.font-script {
+  font-family: var(--font-script);
+  letter-spacing: 0;
+}
+
+/* Gradient text helpers for highlighted heading words */
+.text-eco {
+  background-image: linear-gradient(100deg, #16a34a 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.dark .text-eco {
+  background-image: linear-gradient(100deg, #22c55e 0%, #38bdf8 100%);
+}
+.text-sun {
+  background-image: linear-gradient(100deg, #fbbf24 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-sky {
+  background-image: linear-gradient(100deg, #38bdf8 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hand drawn underline that sits under an accent word */
+.underline-scribble {
+  position: relative;
+  isolation: isolate;
+  white-space: nowrap;
+}
+.underline-scribble::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 0.32em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 9c40-6 90-8 196-4' fill='none' stroke='%23FBBF24' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+  z-index: -1;
+}
+
+/* Soft dotted texture for coloured bands */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.bg-dots-dark {
+  background-image: radial-gradient(rgba(11, 19, 43, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dark .bg-dots-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+::selection {
+  background: var(--color-accent-300);
+  color: var(--color-primary-950);
+}
+
+/* Focus ring consistent across interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Slim, brand coloured scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-muted);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#16a34a, #0284c7);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
