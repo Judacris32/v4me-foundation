@@ -28,7 +28,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const socialLinks = [
-  { label: "Facebook", href: "https://facebook.com/v4me" },
+  { label: "Facebook", href: "https://www.facebook.com/share/14pMMCSAaKr/" },
   { label: "Instagram", href: "https://instagram.com/v4me" },
   { label: "X (Twitter)", href: "https://x.com/v4me" },
   { label: "LinkedIn", href: "https://linkedin.com/company/v4me" },

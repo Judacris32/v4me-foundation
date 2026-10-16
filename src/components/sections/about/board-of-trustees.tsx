@@ -83,6 +83,12 @@ const teamMembers = [
     bio: "A Cybersecurity undergraduate at the Federal University of Applied Sciences Kachia (FUASK). He looks after V4ME's digital equipment and technology and keeps our digital habits safe and responsible.",
     photo: "/images/team/raymond-christopher.jpg",
   },
+  {
+    name: "Engr. Chikezie Okorocha",
+    title: "Renewable Energy & Sustainability Lead",
+    bio: "A COREN registered Electrical Engineer and renewable energy specialist at Chenphion Energy Limited, bringing technical design and project delivery expertise to V4ME for a cleaner energy future in Nigeria.",
+    photo: "/images/team/team-chikezie-okorocha-headshot.jpg",
+  },
 ] as const;
 
 type Person = {

@@ -57,7 +57,7 @@ export function FounderSpotlight() {
               ))}
             </div>
 
-            <div className="mt-7 space-y-4 text-lg leading-relaxed text-foreground/75">
+            <div className="mt-7 space-y-4 text-lg leading-relaxed text-justify text-foreground/75">
               {bioParagraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 24)}>{paragraph}</p>
               ))}

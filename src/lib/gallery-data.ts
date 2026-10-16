@@ -85,6 +85,11 @@ export const galleryCategories: GalleryCategory[] = [
         alt: "Anthony Onyi Uwandu, team member",
         caption: "Anthony Onyi Uwandu, Head of Administration & Operations",
       },
+      {
+        src: "/images/team/team-chikezie-okorocha.jpg",
+        alt: "Engr. Chikezie Okorocha, team member",
+        caption: "Engr. Chikezie Okorocha, Renewable Energy & Sustainability Lead",
+      },
     ],
   },
   {

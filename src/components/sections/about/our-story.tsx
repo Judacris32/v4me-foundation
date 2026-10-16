@@ -80,7 +80,7 @@ export function OurStory() {
               ))}
             </div>
 
-            <div className="mt-8 space-y-5 text-lg leading-relaxed text-foreground/75">
+            <div className="mt-8 space-y-5 text-lg text-justify leading-relaxed text-foreground/75">
               {storyParagraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 24)}>{paragraph}</p>
               ))}
