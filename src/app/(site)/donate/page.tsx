@@ -118,10 +118,10 @@ export default function DonatePage() {
         tone="gold"
         title={
           <>
-            Your gift, <em className="accent-word text-accent-300">their tomorrow</em>
+            Give so no one is <em className="accent-word text-accent-300">left behind</em>
           </>
         }
-        description="Every naira you give goes into the field: trees in the ground, children in class, care for families who need it most."
+        description="For a child without books, a family without food or a village without a clinic, your kindness changes everything. Give today and help us reach the people who need it most."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Donate" }]}
         image="/images/community/aid-box-handoff.jpg"
         imageAlt="A V4ME volunteer handing over a box of relief supplies to a community member"
@@ -177,7 +177,7 @@ export default function DonatePage() {
                 aria-hidden="true"
                 className="absolute inset-x-10 top-0 h-1.5 rounded-b-full bg-gradient-to-r from-accent-400 via-primary-400 to-secondary-400"
               />
-              <h2 className="text-3xl font-semibold text-primary-950 dark:text-white">Make a gift</h2>
+              <h2 className="text-3xl font-semibold text-primary-950 dark:text-white">Make a donation</h2>
               <p className="mt-1 mb-7 text-sm text-foreground/60">Takes less than a minute.</p>
               <DonateForm />
             </div>

@@ -79,7 +79,7 @@ export function DonateSection() {
               aria-hidden="true"
               className="absolute inset-x-10 top-0 h-1.5 rounded-b-full bg-gradient-to-r from-accent-400 via-primary-400 to-secondary-400"
             />
-            <h3 className="text-3xl font-semibold text-primary-950 dark:text-white">Make a gift</h3>
+            <h3 className="text-3xl font-semibold text-primary-950 dark:text-white">Make a donation</h3>
             <p className="mt-1 mb-7 text-sm text-foreground/60">Takes less than a minute.</p>
             <DonateForm />
           </div>
