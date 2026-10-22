@@ -3,30 +3,16 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { HeartHandshake, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { navLinks, siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
-function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
-}
-
-/**
- * Floating pill navbar. The whole bar is a rounded capsule that sits a
- * little below the top of the page; the links live in their own inner
- * capsule, and the current page is marked by a solid green pill that
- * glides between links (shared layoutId). Over the hero it is a frosted
- * glass pill; once the page scrolls it turns into a solid surface pill.
- */
 export function Navbar() {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -46,17 +32,20 @@ export function Navbar() {
   const solid = scrolled || mobileOpen;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div
-        className={cn(
-          "mx-auto flex h-16 max-w-[1380px] items-center justify-between gap-3 rounded-full py-2 pr-2 pl-2.5 transition-all duration-500",
-          solid
-            ? "bg-surface/90 shadow-xl shadow-primary-950/10 ring-1 ring-border-subtle backdrop-blur-xl dark:bg-surface/85 dark:shadow-black/40"
-            : "bg-white/10 ring-1 ring-white/25 backdrop-blur-md",
-        )}
-      >
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 rounded-full pr-2 focus-visible:outline-offset-4">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white p-1.5 shadow-sm ring-1 ring-black/5">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        solid
+          ? "bg-surface/95 shadow-sm shadow-black/5 backdrop-blur supports-[backdrop-filter]:bg-surface/80"
+          : "bg-gradient-to-b from-black/50 via-black/20 to-transparent",
+      )}
+    >
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-offset-4"
+        >
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/95 p-1.5 shadow-sm ring-1 ring-black/5 sm:h-12 sm:w-12">
             <Image
               src="/images/logo.png"
               alt={`${siteConfig.shortName} logo`}
@@ -66,19 +55,19 @@ export function Navbar() {
               className="h-full w-full object-contain"
             />
           </span>
-          <span className="hidden flex-col leading-none sm:flex">
+          <span className="hidden flex-col leading-tight sm:flex">
             <span
               className={cn(
-                "font-display text-lg font-semibold",
-                solid ? "text-primary-950 dark:text-white" : "text-white",
+                "font-display text-base font-bold tracking-tight",
+                solid ? "text-primary-800 dark:text-white" : "text-white",
               )}
             >
               {siteConfig.shortName}
             </span>
             <span
               className={cn(
-                "font-script mt-0.5 text-[15px] font-semibold",
-                solid ? "text-primary-600 dark:text-primary-400" : "text-accent-300",
+                "text-[11px] font-medium tracking-wide uppercase",
+                solid ? "text-primary-500 dark:text-primary-300" : "text-white/80",
               )}
             >
               Voice for Mother Earth
@@ -86,69 +75,40 @@ export function Navbar() {
           </span>
         </Link>
 
-        <nav
-          aria-label="Primary"
-          onMouseLeave={() => setHovered(null)}
-          className={cn(
-            "hidden items-center gap-0.5 rounded-full p-1 xl:flex",
-            solid ? "bg-surface-muted ring-1 ring-border-subtle" : "bg-black/20 ring-1 ring-white/15",
-          )}
-        >
-          {navLinks.map((link) => {
-            const active = isActive(pathname, link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onMouseEnter={() => setHovered(link.href)}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "relative rounded-full px-3 py-2 text-[13px] font-semibold whitespace-nowrap transition-colors duration-200 2xl:px-3.5",
-                  active
-                    ? "text-white"
-                    : solid
-                      ? "text-primary-900/75 hover:text-primary-950 dark:text-white/75 dark:hover:text-white"
-                      : "text-white/85 hover:text-white",
-                )}
-              >
-                {hovered === link.href && !active && (
-                  <motion.span
-                    layoutId="nav-hover"
-                    className={cn(
-                      "absolute inset-0 -z-0 rounded-full",
-                      solid ? "bg-accent-100 dark:bg-white/10" : "bg-white/15",
-                    )}
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                  />
-                )}
-                {active && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 shadow-md shadow-primary-600/30"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{link.label}</span>
-              </Link>
-            );
-          })}
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "rounded-full px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors",
+                solid
+                  ? "text-primary-900/80 hover:bg-primary-50 hover:text-primary-700 dark:text-white/85 dark:hover:bg-white/10 dark:hover:text-white"
+                  : "text-white/90 hover:bg-white/10 hover:text-white",
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
-        <div className="hidden items-center gap-2 xl:flex">
-          <ThemeToggle onDark={!solid} />
+        <div className="hidden items-center gap-2.5 xl:flex">
+          <ThemeToggle />
           <Button
-            href="/donate"
+            href="/get-involved#volunteer"
             size="sm"
-            variant="accent"
-            icon={<HeartHandshake className="h-4 w-4" />}
-            className="h-11 px-5"
+            variant={solid ? "outline-primary" : "outline"}
+            className="whitespace-nowrap"
           >
-            Donate
+            Volunteer
+          </Button>
+          <Button href="/get-involved#donate" size="sm" variant="accent" className="whitespace-nowrap">
+            Donate Now
           </Button>
         </div>
 
         <div className="flex items-center gap-2 xl:hidden">
-          <ThemeToggle onDark={!solid} />
+          <ThemeToggle />
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
@@ -156,10 +116,10 @@ export function Navbar() {
             aria-controls="mobile-menu"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             className={cn(
-              "inline-flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300 hover:scale-105",
+              "inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors",
               solid
-                ? "bg-primary-500 text-white shadow-md shadow-primary-600/30 hover:bg-primary-600"
-                : "bg-white/15 text-white ring-1 ring-white/30 hover:bg-white/25",
+                ? "border-border-subtle text-primary-800 hover:bg-primary-50 dark:text-white dark:hover:bg-white/10"
+                : "border-white/30 text-white hover:bg-white/10",
             )}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -171,41 +131,36 @@ export function Navbar() {
         {mobileOpen && (
           <motion.div
             id="mobile-menu"
-            initial={{ opacity: 0, y: -12, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -12, scale: 0.98 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="mx-auto mt-2 max-h-[calc(100svh-6rem)] max-w-[1380px] overflow-y-auto rounded-[2rem] bg-surface p-3 shadow-2xl shadow-primary-950/20 ring-1 ring-border-subtle xl:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-border-subtle bg-surface xl:hidden"
           >
-            <nav className="grid grid-cols-2 gap-1.5 sm:grid-cols-3" aria-label="Mobile">
-              {navLinks.map((link) => {
-                const active = isActive(pathname, link.href);
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    aria-current={active ? "page" : undefined}
-                    className={cn(
-                      "rounded-full px-4 py-3 text-center text-sm font-semibold transition-all duration-200",
-                      active
-                        ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md shadow-primary-600/25"
-                        : "bg-surface-muted text-primary-900 hover:bg-accent-100 dark:text-white/85 dark:hover:bg-white/10",
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+            <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-primary-900 hover:bg-primary-50 dark:text-white/90 dark:hover:bg-white/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-3 flex flex-col gap-2.5 border-t border-border-subtle pt-4">
+                <Button
+                  href="/get-involved#volunteer"
+                  variant="outline-primary"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Volunteer
+                </Button>
+                <Button href="/get-involved#donate" variant="accent" onClick={() => setMobileOpen(false)}>
+                  Donate Now
+                </Button>
+              </div>
             </nav>
-            <div className="mt-3 grid grid-cols-2 gap-2 border-t border-border-subtle pt-3">
-              <Button href="/get-involved#volunteer" variant="outline-primary" onClick={() => setMobileOpen(false)}>
-                Volunteer
-              </Button>
-              <Button href="/donate" variant="accent" onClick={() => setMobileOpen(false)}>
-                Donate
-              </Button>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

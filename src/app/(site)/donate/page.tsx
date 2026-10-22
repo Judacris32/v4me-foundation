@@ -129,7 +129,7 @@ export default function DonatePage() {
 
       {/* Form + where it goes */}
       <section id="give" className="relative scroll-mt-28 bg-background py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 [&>*]:min-w-0 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-8">
           <div>
             <Reveal>
               <Eyebrow color="accent" icon={HandHeart}>
@@ -172,15 +172,7 @@ export default function DonatePage() {
           </div>
 
           <Reveal delay={0.1} className="lg:sticky lg:top-28">
-            <div className="relative rounded-[2.5rem] bg-surface p-6 shadow-2xl shadow-accent-900/15 ring-1 ring-border-subtle sm:p-10">
-              <div
-                aria-hidden="true"
-                className="absolute inset-x-10 top-0 h-1.5 rounded-b-full bg-gradient-to-r from-accent-400 via-primary-400 to-secondary-400"
-              />
-              <h2 className="text-3xl font-semibold text-primary-950 dark:text-white">Make a donation</h2>
-              <p className="mt-1 mb-7 text-sm text-foreground/60">Takes less than a minute.</p>
-              <DonateForm />
-            </div>
+            <DonateForm />
           </Reveal>
         </div>
       </section>

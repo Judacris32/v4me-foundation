@@ -37,7 +37,7 @@ export function DonateSection() {
       className="relative isolate scroll-mt-28 overflow-hidden bg-gradient-to-br from-accent-50 via-accent-100/70 to-accent-200/60 py-20 sm:py-28 dark:from-accent-950/40 dark:via-background dark:to-background"
     >
       <div aria-hidden="true" className="bg-dots-dark absolute inset-0 -z-10" />
-      <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-start gap-12 [&>*]:min-w-0 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-8">
         <Reveal>
           <Eyebrow color="accent" icon={Gift}>
             Ways to give
@@ -74,13 +74,7 @@ export function DonateSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="relative rounded-[2.5rem] bg-surface p-6 shadow-2xl shadow-accent-900/15 ring-1 ring-border-subtle sm:p-10 lg:sticky lg:top-28">
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-10 top-0 h-1.5 rounded-b-full bg-gradient-to-r from-accent-400 via-primary-400 to-secondary-400"
-            />
-            <h3 className="text-3xl font-semibold text-primary-950 dark:text-white">Make a donation</h3>
-            <p className="mt-1 mb-7 text-sm text-foreground/60">Takes less than a minute.</p>
+          <div className="lg:sticky lg:top-28">
             <DonateForm />
           </div>
         </Reveal>

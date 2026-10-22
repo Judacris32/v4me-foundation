@@ -1,13 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Hides the floating "N" dev-tools badge Next.js overlays in the bottom
+  // corner during `next dev`. It's dev-only (never appears in a production
+  // build/deploy) but it was sitting on top of the hero CTAs while previewing.
+  devIndicators: false,
   images: {
-    // Blog photos uploaded in the Sanity studio are served from Sanity's CDN.
-    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
-  },
-  async redirects() {
-    // Old links to the Resources page land on the new Blog, and the FAQ now lives on Get Involved.
-    return [{ source: "/resources", destination: "/blog", permanent: true }];
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+        // No `search` field here on purpose: our image URLs carry query
+        // strings (?w=...&q=...&auto=format&fit=crop). Next.js matches
+        // `search` as an *exact* string when set, so `search: ""` would
+        // reject every URL that has query params — which is every image
+        // in this project. Omitting it means "any query string is fine".
+      },
+    ],
   },
 };
 
