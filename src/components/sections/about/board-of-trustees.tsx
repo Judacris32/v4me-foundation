@@ -65,7 +65,7 @@ const teamMembers = [
     name: "Lawrence Wisdom",
     title: "Creative Design Director",
     bio: "A Computer Science graduate with a real love for visual identity. He leads V4ME's graphic design, interface design and creative direction, giving the Foundation a look that is clear, consistent and intentional.",
-    photo: "/images/team/lawrence-wisdom.jpg",
+    photo: "/images/team/lawrence-wisdom.png",
   },
   {
     name: "Emmanuel Christopher",

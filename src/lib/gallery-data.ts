@@ -102,7 +102,7 @@ export const galleryCategories: GalleryCategory[] = [
         role: "Renewable Energy & Sustainability Lead",
       },
       {
-        src: "/images/team/lawrence-wisdom.jpg",
+        src: "/images/team/lawrence-wisdom.png",
         alt: "Lawrence Wisdom, team member",
         caption: "Lawrence Wisdom",
         role: "Creative Design Director",
