@@ -31,7 +31,7 @@ export default function GalleryPage() {
         eyebrow="Be part of the story"
         title="Your support writes the next photo"
         description="Every picture here started with someone who showed up, whether as a volunteer, a partner or a donor."
-        primaryAction={{ label: "Donate now", href: "/get-involved#donate", variant: "accent" }}
+        primaryAction={{ label: "Donate now", href: "/donate", variant: "accent" }}
         secondaryAction={{ label: "Volunteer with us", href: "/get-involved#volunteer" }}
       />
     </>

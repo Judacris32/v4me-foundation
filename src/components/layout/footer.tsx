@@ -36,7 +36,7 @@ export function Footer() {
             Together, we give <em className="accent-word text-eco">Mother Earth</em> a voice.
           </h2>
           <div className="flex flex-wrap gap-3">
-            <Button href="/get-involved#donate" variant="accent" size="lg">
+            <Button href="/donate" variant="accent" size="lg">
               Give Today
             </Button>
             <Button href="/get-involved#volunteer" variant="outline" size="lg">

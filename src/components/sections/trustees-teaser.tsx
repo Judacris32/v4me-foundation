@@ -7,16 +7,21 @@ import { cn } from "@/lib/utils";
 
 // Small home page preview of the full Board of Trustees on /about.
 const trustees = [
-  { name: "Barrister Gambo Umaru", photo: "/images/team/trustee-gambo-umaru.jpeg" },
-  { name: "Alhaji Innayatu Jubril Mohammed", photo: "/images/team/trustee-innayatu-mohammed.jpg" },
-  { name: "Christie Ekwujuru", photo: "/images/team/trustee-christie-ekwujuru.jpg" },
-  { name: "Mrs. Ijeoma Santos-Okpe", photo: "/images/team/trustee-ijeoma-santos-okpe.jpg" },
-  { name: "Joy Ekwujuru", photo: "/images/team/trustee-joy-ekwujuru.jpg" },
-  { name: "Sonia Nkechi Christopher", photo: "/images/team/trustee-sonia-christopher.jpg" },
-  { name: "Bernard Emeka Afulike", photo: "/images/team/trustee-bernard-afulike.jpg" },
+  { name: "Mrs. Ijeoma Santos-Okpe", role: "Board Secretary", photo: "/images/team/trustee-ijeoma-santos-okpe.jpg" },
+  { name: "Joy Ekwujuru", role: "Financial Officer", photo: "/images/team/trustee-joy-ekwujuru.jpg" },
+  { name: "Bernard Emeka Afulike", role: "Trustee · CEO, Brain Hive Ltd", photo: "/images/team/trustee-bernard-afulike.jpg" },
+  { name: "Sonia Nkechi Christopher", role: "Trustee & Team Member", photo: "/images/team/trustee-sonia-christopher.jpg" },
+  { name: "Christie Ekwujuru", role: "Trustee · CEO, De Nelly Diamond Global", photo: "/images/team/trustee-christie-ekwujuru.jpg" },
+  { name: "Barrister Gambo Umaru", role: "Legal & Compliance Advisor", photo: "/images/team/trustee-gambo-umaru.jpeg" },
+  { name: "Alhaji Innayatu Jubril Mohammed", role: "Trustee · CEO, Honey Acres Farmland", photo: "/images/team/trustee-innayatu-mohammed.jpg" },
 ] as const;
 
 const ringColours = ["ring-primary-400", "ring-secondary-400", "ring-accent-400"];
+const roleColours = [
+  "text-primary-600 dark:text-primary-400",
+  "text-secondary-600 dark:text-secondary-400",
+  "text-accent-700 dark:text-accent-400",
+];
 
 /**
  * A warm, sun gold band after the navy SDG section. Faces first, in a
@@ -40,10 +45,10 @@ export function TrusteesTeaser() {
           </p>
         </Reveal>
 
-        <div className="mt-14 flex flex-wrap items-start justify-center gap-x-6 gap-y-8 sm:gap-x-10">
+        <div className="mt-14 flex flex-wrap items-start justify-center gap-x-5 gap-y-8 lg:gap-x-6">
           {trustees.map((person, i) => (
             <Reveal key={person.name} delay={i * 0.05}>
-              <div className="group w-28 text-center">
+              <div className="group w-32 text-center">
                 <div
                   className={cn(
                     "relative mx-auto h-24 w-24 overflow-hidden rounded-full shadow-xl ring-4 ring-offset-4 ring-offset-accent-100 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-105 dark:ring-offset-background",
@@ -53,6 +58,7 @@ export function TrusteesTeaser() {
                   <Image src={person.photo} alt={person.name} fill sizes="96px" className="object-cover" />
                 </div>
                 <p className="mt-4 text-xs leading-snug font-bold text-primary-950 dark:text-white">{person.name}</p>
+                <p className={cn("font-script mt-1 text-base leading-tight font-bold", roleColours[i % 3])}>{person.role}</p>
               </div>
             </Reveal>
           ))}

@@ -35,7 +35,7 @@ export default function ProgramsPage() {
         eyebrow="Get involved"
         title="Ready to add your voice?"
         description="Your time, your skills or your support. Whatever you can offer, there is a place for you in this work."
-        primaryAction={{ label: "Donate now", href: "/get-involved#donate" }}
+        primaryAction={{ label: "Donate now", href: "/donate" }}
         secondaryAction={{ label: "Volunteer with us", href: "/get-involved#volunteer" }}
       />
     </>

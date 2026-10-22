@@ -4,28 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
+// Board of Trustees, in the order the client set (Oct 2026): Secretary,
+// Financial Officer, Brain Hive, nurse, De Nelly Diamond, Legal, Honey Acres.
 // Real Board of Trustees and operations team, replacing the earlier
 // placeholder role tiles. Bios are tightened summaries of the fuller
 // biographies supplied for each person.
 const trustees = [
-  {
-    name: "Barrister Gambo Umaru, LLB, BL",
-    title: "Legal & Compliance Advisor",
-    bio: "Founder and Principal Consultant of Delu Consulting Firm, he gives the Foundation legal guidance and helps keep its governance, compliance and accountability sound.",
-    photo: "/images/team/trustee-gambo-umaru.jpg",
-  },
-  {
-    name: "Alhaji Innayatu Jubril Mohammed",
-    title: "Trustee · CEO, Honey Acres Farmland",
-    bio: "An industrial chemist with more than 30 years in quality control at Kaduna Refining and Petrochemical Company. He now leads Honey Acres Farmland and champions tree planting and cutting carbon footprints as practical climate action.",
-    photo: "/images/team/trustee-innayatu-mohammed.jpg",
-  },
-  {
-    name: "Christie Ekwujuru",
-    title: "Trustee · CEO, De Nelly Diamond Global",
-    bio: "A human resources professional with postgraduate studies in Conflict, Peace and Strategic Studies. She is a committed advocate for clean water, sanitation and sustainable communities.",
-    photo: "/images/team/trustee-christie-ekwujuru.jpg",
-  },
   {
     name: "Mrs. Ijeoma Santos-Okpe",
     title: "Board Secretary",
@@ -39,26 +23,38 @@ const trustees = [
     photo: "/images/team/trustee-joy-ekwujuru.jpg",
   },
   {
+    name: "Bernard Emeka Afulike, BSc, MSc, FCIFC, FCILRM",
+    title: "Trustee · CEO, Brain Hive Ltd",
+    bio: "An economist and consultant in education and finance management, with over 10 years in education and 8 in finance and banking. He is a Fellow of FCIFC and FCILRM and cares deeply about quality education.",
+    photo: "/images/team/trustee-bernard-afulike.jpg",
+  },
+  {
     name: "Sonia Nkechi Christopher, B.NSc.",
     title: "Trustee & Team Member",
     bio: "A nursing graduate of Novena University, Delta State. She is passionate about patient care, mental health nursing and nursing education, and volunteers regularly in her community.",
     photo: "/images/team/trustee-sonia-christopher.jpg",
   },
   {
-    name: "Bernard Emeka Afulike, BSc, MSc, FCIFC, FCILRM",
-    title: "Trustee · CEO, Brain Hive Ltd",
-    bio: "An economist and consultant in education and finance management, with over 10 years in education and 8 in finance and banking. He is a Fellow of FCIFC and FCILRM and cares deeply about quality education.",
-    photo: "/images/team/trustee-bernard-afulike.jpg",
+    name: "Christie Ekwujuru",
+    title: "Trustee · CEO, De Nelly Diamond Global",
+    bio: "A human resources professional with postgraduate studies in Conflict, Peace and Strategic Studies. She is a committed advocate for clean water, sanitation and sustainable communities.",
+    photo: "/images/team/trustee-christie-ekwujuru.jpg",
+  },
+  {
+    name: "Barrister Gambo Umaru, LLB, BL",
+    title: "Legal & Compliance Advisor",
+    bio: "Founder and Principal Consultant of Delu Consulting Firm, he gives the Foundation legal guidance and helps keep its governance, compliance and accountability sound.",
+    photo: "/images/team/trustee-gambo-umaru.jpg",
+  },
+  {
+    name: "Alhaji Innayatu Jubril Mohammed",
+    title: "Trustee · CEO, Honey Acres Farmland",
+    bio: "An industrial chemist with more than 30 years in quality control at Kaduna Refining and Petrochemical Company. He now leads Honey Acres Farmland and champions tree planting and cutting carbon footprints as practical climate action.",
+    photo: "/images/team/trustee-innayatu-mohammed.jpg",
   },
 ] as const;
 
 const teamMembers = [
-  {
-    name: "Anthony Onyi Uwandu",
-    title: "Head of Administration & Operations",
-    bio: "A Business Management graduate and entrepreneur, and CEO of LaVisa Links Communications and De Nero Green Farms. He brings years of leadership and organisational experience to the way V4ME runs day to day.",
-    photo: "/images/team/team-anthony-uwandu.jpg",
-  },
   {
     name: "Jude Iyelumi",
     title: "Full Stack Developer",
@@ -84,9 +80,15 @@ const teamMembers = [
     photo: "/images/team/raymond-christopher.jpg",
   },
   {
+    name: "Anthony Onyi Uwandu",
+    title: "Head of Administration & Operations",
+    bio: "A Business Management graduate and entrepreneur, and CEO of LaVisa Links Communications and De Nero Green Farms. He brings years of leadership and organisational experience to the way V4ME runs day to day.",
+    photo: "/images/team/team-anthony-uwandu.jpg",
+  },
+  {
     name: "Engr. Chikezie Okorocha",
     title: "Renewable Energy & Sustainability Lead",
-    bio: "A COREN registered Electrical Engineer and renewable energy specialist at Chenphion Energy Limited, bringing technical design and project delivery expertise to V4ME for a cleaner energy future in Nigeria.",
+    bio: "A COREN registered Electrical Engineer and renewable energy specialist with deep experience in solar PV and battery storage systems. As Principal Consultant of Chenphion Energy Limited, he brings his know how in sustainable energy, technical design and project delivery to V4ME, and is committed to clean, reliable energy that builds resilient communities and moves Nigeria toward a cleaner energy future.",
     photo: "/images/team/team-chikezie-okorocha-headshot.jpg",
   },
 ] as const;

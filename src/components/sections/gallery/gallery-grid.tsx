@@ -14,6 +14,11 @@ const allImages: GalleryImage[] = galleryCategories.flatMap((category) => catego
 
 function PhotoCard({ image, onOpen, tone }: { image: GalleryImage; onOpen: () => void; tone: number }) {
   const ring = ["hover:ring-primary-400", "hover:ring-secondary-400", "hover:ring-accent-400"][tone % 3];
+  const roleText = [
+    "text-primary-600 dark:text-primary-400",
+    "text-secondary-600 dark:text-secondary-400",
+    "text-accent-700 dark:text-accent-400",
+  ][tone % 3];
   return (
     <button
       type="button"
@@ -29,11 +34,14 @@ function PhotoCard({ image, onOpen, tone }: { image: GalleryImage; onOpen: () =>
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        <span className="absolute right-3 bottom-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-white text-primary-950 opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+        <span className="absolute top-3 right-3 flex h-9 w-9 -translate-y-2 items-center justify-center rounded-full bg-white text-primary-950 opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
           <Expand className="h-4 w-4" aria-hidden="true" />
         </span>
       </div>
-      <p className="px-3 pt-3 pb-2 text-sm leading-snug font-semibold text-primary-950 dark:text-white">{image.caption}</p>
+      <div className="px-3 pt-3 pb-2">
+        <p className="text-sm leading-snug font-bold text-primary-950 dark:text-white">{image.caption}</p>
+        {image.role && <p className={`font-script mt-0.5 text-base leading-tight font-bold ${roleText}`}>{image.role}</p>}
+      </div>
     </button>
   );
 }
@@ -131,7 +139,7 @@ export function GalleryGrid() {
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
             role="dialog"
             aria-modal="true"
-            aria-label={active.caption}
+            aria-label={active.role ? `${active.caption}, ${active.role}` : active.caption}
             onClick={close}
           >
             <button
@@ -173,7 +181,8 @@ export function GalleryGrid() {
                   className="max-h-[75vh] w-auto rounded-xl object-contain"
                 />
               </div>
-              <p className="mt-4 text-center text-sm font-medium text-white/90">{active.caption}</p>
+              <p className="mt-4 text-center text-base font-semibold text-white">{active.caption}</p>
+              {active.role && <p className="font-script mt-1 text-center text-xl font-bold text-accent-300">{active.role}</p>}
             </motion.div>
 
             <button

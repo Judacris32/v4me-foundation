@@ -21,12 +21,15 @@ export default defineConfig({
       structure: (S) =>
         S.list()
           .title("V4ME")
-          .items([S.documentTypeListItem("post").title("Blog posts")]),
+          .items([
+            S.documentTypeListItem("post").title("Blog posts"),
+            S.documentTypeListItem("job").title("Job openings"),
+          ]),
     }),
   ],
   document: {
-    // Only blog posts can be created from the "+" button.
-    newDocumentOptions: (prev) => prev.filter((item) => item.templateId === "post"),
+    // Only blog posts and job openings can be created from the "+" button.
+    newDocumentOptions: (prev) => prev.filter((item) => item.templateId === "post" || item.templateId === "job"),
   },
   apiVersion,
 });

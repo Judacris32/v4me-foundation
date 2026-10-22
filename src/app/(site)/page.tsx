@@ -26,7 +26,7 @@ export default function Home() {
           </>
         }
         description="An hour of your time, a skill you can share or a gift that fuels the next outreach. Whatever you bring, there is a place for you here."
-        primaryAction={{ label: "Donate now", href: "/get-involved#donate", variant: "accent" }}
+        primaryAction={{ label: "Donate now", href: "/donate", variant: "accent" }}
         secondaryAction={{ label: "Volunteer with us", href: "/get-involved#volunteer" }}
       />
     </>

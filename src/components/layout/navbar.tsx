@@ -137,7 +137,7 @@ export function Navbar() {
         <div className="hidden items-center gap-2 xl:flex">
           <ThemeToggle onDark={!solid} />
           <Button
-            href="/get-involved#donate"
+            href="/donate"
             size="sm"
             variant="accent"
             icon={<HeartHandshake className="h-4 w-4" />}
@@ -202,7 +202,7 @@ export function Navbar() {
               <Button href="/get-involved#volunteer" variant="outline-primary" onClick={() => setMobileOpen(false)}>
                 Volunteer
               </Button>
-              <Button href="/get-involved#donate" variant="accent" onClick={() => setMobileOpen(false)}>
+              <Button href="/donate" variant="accent" onClick={() => setMobileOpen(false)}>
                 Donate
               </Button>
             </div>

@@ -190,7 +190,7 @@ export function Hero() {
             <Button href="/get-involved#volunteer" variant="accent" size="lg" icon={<HeartHandshake className="h-4.5 w-4.5" />}>
               Join Us
             </Button>
-            <Button href="/get-involved#donate" variant="primary" size="lg" icon={<Leaf className="h-4.5 w-4.5" />}>
+            <Button href="/donate" variant="primary" size="lg" icon={<Leaf className="h-4.5 w-4.5" />}>
               Donate
             </Button>
             <Button href="/about" variant="outline" size="lg" icon={<ArrowRight className="h-4.5 w-4.5" />}>

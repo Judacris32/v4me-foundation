@@ -76,7 +76,7 @@ export default async function ThankYouPage({ searchParams }: PageProps<"/donate/
             </div>
             <div className="mt-12 flex flex-col items-center gap-3">
               <p className="text-sm text-white/65">Tell a friend. Every hand counts.</p>
-              <ShareButtons url={`${siteConfig.url}/get-involved#donate`} title="I just gave to Voice for Mother Earth. Join me!" />
+              <ShareButtons url={`${siteConfig.url}/donate`} title="I just gave to Voice for Mother Earth. Join me!" />
             </div>
           </>
         ) : tx && tx.status !== "success" ? (
@@ -90,7 +90,7 @@ export default async function ThankYouPage({ searchParams }: PageProps<"/donate/
               or pick another way to pay on the Paystack page.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Button href="/get-involved#donate" variant="accent" size="lg" icon={<RefreshCw className="h-4 w-4" />}>
+              <Button href="/donate" variant="accent" size="lg" icon={<RefreshCw className="h-4 w-4" />}>
                 Try again
               </Button>
               <Button href="/contact" variant="outline" size="lg">
@@ -113,7 +113,7 @@ export default async function ThankYouPage({ searchParams }: PageProps<"/donate/
               and we will sort it out.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Button href="/get-involved#donate" variant="accent" size="lg">
+              <Button href="/donate" variant="accent" size="lg">
                 Go to giving
               </Button>
               <Button href="/" variant="outline" size="lg">

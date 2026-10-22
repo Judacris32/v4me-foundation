@@ -3,7 +3,7 @@ import { getOrCreateMonthlyPlan, isPaystackConfigured, paystack } from "@/lib/pa
 
 export const runtime = "nodejs";
 
-const MIN_NAIRA = 500;
+const MIN_NAIRA = 10_000;
 const MAX_NAIRA = 50_000_000;
 
 type Body = {

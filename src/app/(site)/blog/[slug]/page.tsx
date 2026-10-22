@@ -125,7 +125,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         eyebrow="Moved by this story?"
         title="Help us write the next one"
         description="Your time or a gift keeps these outreaches going. There is a place for you in this work."
-        primaryAction={{ label: "Donate now", href: "/get-involved#donate", variant: "accent" }}
+        primaryAction={{ label: "Donate now", href: "/donate", variant: "accent" }}
         secondaryAction={{ label: "Volunteer with us", href: "/get-involved#volunteer" }}
       />
     </>

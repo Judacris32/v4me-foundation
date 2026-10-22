@@ -1,7 +1,10 @@
 export type GalleryImage = {
   src: string;
   alt: string;
+  /** For people: their name. For program photos: a short description. */
   caption: string;
+  /** For people: their role, shown under the name and as a badge on the photo. */
+  role?: string;
 };
 
 export type GalleryCategory = {
@@ -23,72 +26,86 @@ export const galleryCategories: GalleryCategory[] = [
       {
         src: "/images/team/founder-jennifer.jpg",
         alt: "Jennifer Kelechi Ekwujuru, Founder of Voice for Mother Earth Foundation",
-        caption: "Jennifer Kelechi Ekwujuru, Founder",
+        caption: "Jennifer Kelechi Ekwujuru",
+        role: "Founder",
       },
       {
         src: "/images/team/trustee-gambo-umaru.jpg",
-        alt: "Barrister Gambo Umaru, board trustee",
+        alt: "Barrister Gambo Umaru, Legal & Compliance Advisor",
         caption: "Barrister Gambo Umaru",
+        role: "Legal & Compliance Advisor",
       },
       {
         src: "/images/team/trustee-innayatu-mohammed.jpg",
         alt: "Alhaji Innayatu Jubril Mohammed, board trustee",
         caption: "Alhaji Innayatu Jubril Mohammed",
+        role: "Trustee · CEO, Honey Acres Farmland",
       },
       {
         src: "/images/team/trustee-christie-ekwujuru.jpg",
         alt: "Christie Ekwujuru, board trustee",
         caption: "Christie Ekwujuru",
+        role: "Trustee · CEO, De Nelly Diamond Global",
       },
       {
         src: "/images/team/trustee-ijeoma-santos-okpe.jpg",
-        alt: "Mrs. Ijeoma Santos-Okpe, board trustee",
+        alt: "Mrs. Ijeoma Santos-Okpe, Board Secretary",
         caption: "Mrs. Ijeoma Santos-Okpe",
+        role: "Board Secretary",
       },
       {
         src: "/images/team/trustee-joy-ekwujuru.jpg",
-        alt: "Joy Ekwujuru, board trustee",
+        alt: "Joy Ekwujuru, Financial Officer",
         caption: "Joy Ekwujuru",
+        role: "Financial Officer",
       },
       {
         src: "/images/team/trustee-sonia-christopher.jpg",
         alt: "Sonia Nkechi Christopher, board trustee",
         caption: "Sonia Nkechi Christopher, B.NSc.",
+        role: "Trustee & Team Member",
       },
       {
         src: "/images/team/trustee-bernard-afulike.jpg",
         alt: "Bernard Emeka Afulike, board trustee",
         caption: "Bernard Emeka Afulike",
+        role: "Trustee · CEO, Brain Hive Ltd",
       },
       {
         src: "/images/team/team-jude-iyelumi.png",
         alt: "Jude Iyelumi, team member",
-        caption: "Jude Iyelumi, Full Stack Developer",
-      },
-      {
-        src: "/images/team/lawrence-wisdom.jpg",
-        alt: "Lawrence Wisdom, team member",
-        caption: "Lawrence Wisdom, Creative Design Director",
+        caption: "Jude Iyelumi",
+        role: "Full Stack Developer",
       },
       {
         src: "/images/team/emmanuel-christopher.jpg",
         alt: "Emmanuel Christopher, team member",
-        caption: "Emmanuel Christopher, Photography & Visual Documentation Officer",
+        caption: "Emmanuel Christopher",
+        role: "Photography & Visual Documentation Officer",
       },
       {
         src: "/images/team/raymond-christopher.jpg",
         alt: "Raymond Munachi Christopher, team member",
-        caption: "Raymond Munachi Christopher, ICT & Technical Support Officer",
+        caption: "Raymond Munachi Christopher",
+        role: "ICT & Technical Support Officer",
       },
       {
         src: "/images/team/team-anthony-uwandu.jpg",
         alt: "Anthony Onyi Uwandu, team member",
-        caption: "Anthony Onyi Uwandu, Head of Administration & Operations",
+        caption: "Anthony Onyi Uwandu",
+        role: "Head of Administration & Operations",
       },
       {
         src: "/images/team/team-chikezie-okorocha.jpg",
         alt: "Engr. Chikezie Okorocha, team member",
-        caption: "Engr. Chikezie Okorocha, Renewable Energy & Sustainability Lead",
+        caption: "Engr. Chikezie Okorocha",
+        role: "Renewable Energy & Sustainability Lead",
+      },
+      {
+        src: "/images/team/lawrence-wisdom.jpg",
+        alt: "Lawrence Wisdom, team member",
+        caption: "Lawrence Wisdom",
+        role: "Creative Design Director",
       },
     ],
   },

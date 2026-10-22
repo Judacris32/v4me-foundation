@@ -7,8 +7,8 @@ import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 // Suggested amounts in naira. Donors can always type their own.
-const PRESETS = [2000, 5000, 10000, 25000, 50000];
-const MIN = 500;
+const PRESETS = [10000, 25000, 50000, 100000, 250000];
+const MIN = 10000;
 
 const naira = (n: number) => `₦${n.toLocaleString("en-NG")}`;
 
